@@ -22,7 +22,7 @@
 ########################################################################
 
 NAME     = spl
-VERSION  = 1.1
+VERSION  = 1.2
 DISTNAME = $(NAME)-$(VERSION)
 
 # compiler commands 
@@ -34,6 +34,7 @@ TAR     = tar
 YACC    = bison
 
 INCLUDEPATH = include
+EDITORPATH  = editor
 EXAMPLEPATH = examples
 
 # source / outputs
@@ -94,11 +95,12 @@ tar: clean
 	mkdir -p $(DISTNAME)
 	cp `find . -type f -maxdepth 1` $(DISTNAME)
 	cp -r $(INCLUDEPATH) $(DISTNAME)
+	cp -r $(EDITORPATH) $(DISTNAME)
 	cp -r $(EXAMPLEPATH) $(DISTNAME)
 	$(TAR) zcvf $(DISTNAME).tar.gz $(DISTNAME)
 
 # clean-up funtion
 clean:
-	rm -f *~ include/*~ *.l *.o *.a core grammar.output grammar.tab.h grammar.tab.c scanner.c makescanner spl2c *.tar.gz
+	rm -f *~ $(EDITORPATH)/*~ $(INCLUDEPATH)/*~ *.l *.o *.a core grammar.output grammar.tab.h grammar.tab.c scanner.c makescanner spl2c *.tar.gz
 	rm -rf spl $(DISTNAME)
 	$(MAKE) -C $(EXAMPLEPATH) clean
