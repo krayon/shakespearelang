@@ -41,6 +41,7 @@ char *cat9(char *str1, char *str2, char *str3, char *str4,
 char *int2str(int i);
 char *newstr(const char *str);
 char *space2underscore(char *str);
+char *singlespace(char *str);
 char *str2lower(char *str);
 char *str2upper(char *str);
 char *str2varname(char *str);

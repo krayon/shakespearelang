@@ -126,10 +126,46 @@ char *space2underscore(char *str)
   return str;
 }
 
+char *singlespace(char *str)
+{
+  char *read;
+  char *write;
+
+  int last_space = 0;
+  int this_space = 0;
+
+  /* Walk through the string, deleting multiple spaces. */
+  for (read = write = str; *read != '\0'; read++) {
+
+    /* Was the last character a space? */
+    last_space = this_space;
+
+    /* Is this character a space? */
+    this_space = isspace((int) *read);
+
+    /* Copy the character unless this would make more than one space
+       in a row. */
+    if (!(last_space && this_space)) {
+
+      /* Copy. */
+      *write = *read;
+
+      /* Advance write position. */
+      write++;
+    }
+  }
+
+  /* Write \0 at end of string. */
+  *write = '\0';
+
+  /* Return the modified string. */
+  return str;
+}
+
 char *str2lower(char *str)
 {
   char *c;
-  for(c = str; *c != '\0'; c++) {
+  for (c = str; *c != '\0'; c++) {
     *c = (char) tolower((int) *c);
   }
   return str;
@@ -138,7 +174,7 @@ char *str2lower(char *str)
 char *str2upper(char *str)
 {
   char *c;
-  for(c = str; *c != '\0'; c++) {
+  for (c = str; *c != '\0'; c++) {
     *c = (char) toupper((int) *c);
   }
   return str;
@@ -146,7 +182,7 @@ char *str2upper(char *str)
 
 char *str2varname(char *str)
 {
-  return str2lower(space2underscore(str));
+  return str2lower(space2underscore(singlespace(str)));
 }
 
 char *strindent(char *str, char *indent)
