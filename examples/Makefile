@@ -23,46 +23,31 @@
 
 SPLPATH = ../spl
 
-# compiler commands 
-CC      = gcc
+# compiler commands
+CC    = gcc
 SPL2C = $(SPLPATH)/bin/spl2c
 
 # compiler flags
-CCFLAGS      = -O2 -Wall
+CCFLAGS      = -O2 -Wall -Wno-unused
 INCLUDEFLAGS = -I$(SPLPATH)/include
 LDFLAGS      = -L$(SPLPATH)/lib -lm -lspl
 
+# target files
+TARGETS = $(patsubst %.spl, %, $(wildcard *.spl))
+
 .PHONY: all
-all: reverse hello primes
+all: $(TARGETS)
 
-reverse: reverse.o 
+%: %.o 
 	$(CC) $(CCFLAGS) $^ $(LDFLAGS) -o $@
 
-reverse.c: reverse.spl
+%.c: %.spl
 	$(SPL2C) < $< > $@
 
-reverse.o: reverse.c
-	$(CC) $(CCFLAGS) $(INCLUDEFLAGS) -c $<
-
-hello: hello.o 
-	$(CC) $(CCFLAGS) $^ $(LDFLAGS) -o $@
-
-hello.c: hello.spl
-	$(SPL2C) < $< > $@
-
-hello.o: hello.c
-	$(CC) $(CCFLAGS) $(INCLUDEFLAGS) -c $<
-
-primes: primes.o 
-	$(CC) $(CCFLAGS) $^ $(LDFLAGS) -o $@
-
-primes.c: primes.spl
-	$(SPL2C) < $< > $@
-
-primes.o: primes.c
+%.o: %.c
 	$(CC) $(CCFLAGS) $(INCLUDEFLAGS) -c $<
 
 # clean-up funtion
 .PHONY: clean
 clean:
-	rm -f *~ *.c *.o core primes hello reverse
+	rm -f *~ *.c *.o core $(TARGETS)
