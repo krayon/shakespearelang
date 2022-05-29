@@ -1,9 +1,11 @@
 # SPL, the Shakespeare Programming Language
 
+-----
+
 ## About this Repository
 
-**NOTE: This is only a mirror of the original project, only available as
-tarballs from SourceForge.**
+_**NOTE: This is a mirror of the original project, only available as tarballs
+from SourceForge.**_
 
 It also includes copies of:
   - [HTML Documentation](https://krayon.github.io/shakespearelang/docs/shakespeare.html)
