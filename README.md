@@ -6,8 +6,8 @@
 tarballs from SourceForge.**
 
 It also includes copies of:
-  - [HTML Documentation](documentation/shakespeare.html)
-  - [PDF Documentation](documentation.pdf)
+  - [HTML Documentation](https://krayon.github.io/shakespearelang/shakespeare.html)
+  - [PDF Documentation](docs/shakespeare.pdf)
 
 ## Summary
 
