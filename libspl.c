@@ -216,6 +216,16 @@ void exit_scene_all(int line)
 #endif
 }
 
+/* Global variables */
+
+CHARACTER **cast;
+CHARACTER *first_person;
+CHARACTER *second_person;
+
+int truth_flag;
+int num_on_stage;
+int num_cast;
+
 void global_initialize()
 {
   cast = NULL;

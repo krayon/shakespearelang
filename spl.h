@@ -43,13 +43,13 @@ typedef struct {
 
 /* global variables */
 
-CHARACTER **cast;
-CHARACTER *first_person;
-CHARACTER *second_person;
+extern CHARACTER **cast;
+extern CHARACTER *first_person;
+extern CHARACTER *second_person;
 
-int truth_flag;
-int num_on_stage;
-int num_cast;
+extern int truth_flag;
+extern int num_on_stage;
+extern int num_cast;
 
 /* function prototypes */
 extern void activate_character(int line, CHARACTER *character);
