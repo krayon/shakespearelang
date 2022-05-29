@@ -30,7 +30,7 @@ SPL2C = $(SPLPATH)/bin/spl2c
 # compiler flags
 CCFLAGS      = -O2 -Wall -Wno-unused
 INCLUDEFLAGS = -I$(SPLPATH)/include
-LDFLAGS      = -L$(SPLPATH)/lib -lm -lspl
+LDFLAGS      = -L$(SPLPATH)/lib -lspl -lm
 
 # target files
 TARGETS = $(patsubst %.spl, %, $(wildcard *.spl))

@@ -68,7 +68,7 @@ libspl.a: libspl.o strutils.o
 	$(RANLIB) $@
 
 libspl.o: libspl.c spl.h
-	$(CC) $(CCFLAGS) -c $<
+	$(CC) $(CCFLAGS) -lm -c $<
 
 makescanner: makescanner.o
 	$(CC) $< $(CCFLAGS) -o $@
