@@ -11,6 +11,12 @@ It also includes copies of:
   - [HTML Documentation](https://krayon.github.io/shakespearelang/docs/shakespeare.html)
   - [PDF Documentation](https://krayon.github.io/shakespearelang/docs/shakespeare.pdf)
 
+As well as some minor fixes:
+  - Fix fibonacci compile warning
+  - Fix "sqrt()" compile error
+  - Fix "multiple definition" compile error
+  - Remove duplicate "rotten"
+
 ## Summary
 
 SPL is an esoteric programming language, designed and implemented by Jon Åslund
